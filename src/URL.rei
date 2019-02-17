@@ -15,10 +15,6 @@ let searchParams: t => URLSearchParams.t;
 let username: t => string;
 let toString: t => string;
 let toJSON: t => string;
-let domainToASCII: string => string;
-let domainToUnicode: string => string;
-let format_:
-  (~auth: bool=?, ~fragment: bool=?, ~search: bool=?, ~unicode: bool=?, t) =>
-  string;
+
 let parse: string => t;
 let resolve: (string, string) => t;

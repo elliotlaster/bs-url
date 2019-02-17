@@ -21,7 +21,7 @@ module Iter = {
 [@bs.module "url"] [@bs.new]
 external makeWithObject: Js.t({..}) => t = "URLSearchParams";
 
-[@bs.module "url"] [@bs.new]
+[@bs.module "whatwg-url"] [@bs.new]
 external makeWithArray: array(pair('a)) => t = "URLSearchParams";
 
 /* Members */

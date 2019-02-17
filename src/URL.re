@@ -1,7 +1,7 @@
 type t;
 
-[@bs.module "url"] [@bs.new] external make: string => t = "URL";
-[@bs.module "url"] [@bs.new]
+[@bs.module "whatwg-url"] [@bs.new] external make: string => t = "URL";
+[@bs.module "whatwg-url"] [@bs.new]
 external makeWithBase: (string, string) => t = "URL";
 
 /* Members */
@@ -23,38 +23,25 @@ external makeWithBase: (string, string) => t = "URL";
 [@bs.send] external toJSON: t => string = "";
 
 /* Static methods */
-[@bs.module "url"] [@bs.val] external domainToASCII: string => string = "";
-[@bs.module "url"] [@bs.val] external domainToUnicode: string => string = "";
-[@bs.module "url"] [@bs.val]
-external formatInternal:
-  (
-    t,
-    {
-      .
-      "auth": bool,
-      "fragment": bool,
-      "search": bool,
-      "unicode": bool,
-    }
-  ) =>
-  string =
-  "format";
+/* [@bs.module "whatwg-url"] [@bs.val]
+   external domainToASCII: string => string = "";
+   [@bs.module "whatwg-url"] [@bs.val]
+   external domainToUnicode: string => string = "";
+   [@bs.module "whatwg-url"] [@bs.val] */
+/* external formatInternal:
+   (
+     t,
+     {
+       .
+       "auth": bool,
+       "fragment": bool,
+       "search": bool,
+       "unicode": bool,
+     }
+   ) =>
+   string =
+   "format"; */
 
-let unwrapOptWithDefault = (optionalValue, default) =>
-  switch (optionalValue) {
-  | Some(v) => v
-  | None => default
-  };
-
-let format_ = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, t) =>
-  formatInternal(
-    t,
-    {
-      "auth": unwrapOptWithDefault(auth, true),
-      "fragment": unwrapOptWithDefault(fragment, true),
-      "search": unwrapOptWithDefault(search, true),
-      "unicode": unwrapOptWithDefault(unicode, false),
-    },
-  );
-[@bs.module "url"] [@bs.val] external parse: string => t = "";
-[@bs.module "url"] [@bs.val] external resolve: (string, string) => t = "";
+[@bs.module "whatwg-url"] [@bs.val] external parse: string => t = "";
+[@bs.module "whatwg-url"] [@bs.val]
+external resolve: (string, string) => t = "";

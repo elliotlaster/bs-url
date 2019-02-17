@@ -32,5 +32,8 @@
     "start": "bsb -make-world -w",
     "pretest": "npm run build",
     "test": "jest"
+  },
+  "dependencies": {
+    "whatwg-url": "^7.0.0"
   }
 }
