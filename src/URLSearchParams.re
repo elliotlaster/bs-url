@@ -16,9 +16,10 @@ module Iter = {
 };
 
 /* Constructor */
-[@bs.module "url"] [@bs.new] external make: string => t = "URLSearchParams";
+[@bs.module "whatwg-url"] [@bs.new]
+external make: string => t = "URLSearchParams";
 
-[@bs.module "url"] [@bs.new]
+[@bs.module "whatwg-url"] [@bs.new]
 external makeWithObject: Js.t({..}) => t = "URLSearchParams";
 
 [@bs.module "whatwg-url"] [@bs.new]
